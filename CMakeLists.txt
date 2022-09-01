@@ -13,3 +13,6 @@ add_library(
 
 target_include_directories(
   example-adder PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>)
+
+add_executable(adder src/adder.cpp)
+target_link_libraries(adder PUBLIC example-adder)
