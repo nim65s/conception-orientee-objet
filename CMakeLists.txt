@@ -24,7 +24,7 @@ target_link_libraries(adder PUBLIC example-adder)
 if(BUILD_PYTHON_INTERFACE)
   find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
   find_package(Boost REQUIRED COMPONENTS python)
-  add_subdirectory(python)
+  add_subdirectory(conception_orientee_objet)
 endif()
 
 if(BUILD_TESTING)
