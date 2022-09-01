@@ -7,6 +7,8 @@ project(
   HOMEPAGE_URL "https://github.com/nim65s/conception-orientee-objet"
   LANGUAGES CXX)
 
+include(CTest)
+
 add_library(
   example-adder SHARED include/conception-orientee-objet/example-adder.hpp
                        src/example-adder.cpp)
@@ -16,3 +18,7 @@ target_include_directories(
 
 add_executable(adder src/adder.cpp)
 target_link_libraries(adder PUBLIC example-adder)
+
+if(BUILD_TESTING)
+  add_subdirectory(tests)
+endif()
