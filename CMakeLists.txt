@@ -9,6 +9,8 @@ project(
 
 include(CTest)
 
+option(BUILD_PYTHON_INTERFACE "Build the python binding" ON)
+
 add_library(
   example-adder SHARED include/conception-orientee-objet/example-adder.hpp
                        src/example-adder.cpp)
@@ -18,6 +20,12 @@ target_include_directories(
 
 add_executable(adder src/adder.cpp)
 target_link_libraries(adder PUBLIC example-adder)
+
+if(BUILD_PYTHON_INTERFACE)
+  find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
+  find_package(Boost REQUIRED COMPONENTS python)
+  add_subdirectory(python)
+endif()
 
 if(BUILD_TESTING)
   add_subdirectory(tests)
