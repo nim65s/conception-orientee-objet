@@ -1,5 +1,5 @@
-#include <boost/python.hpp>
+#include <pybind11/pybind11.h>
 
 #include "conception-orientee-objet/example-adder.hpp"
 
-BOOST_PYTHON_MODULE(binary_module) { boost::python::def("add", coo::add); }
+PYBIND11_MODULE(binary_module, m) { m.def("add", &coo::add); }
