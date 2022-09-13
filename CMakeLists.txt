@@ -30,3 +30,7 @@ endif()
 if(BUILD_TESTING)
   add_subdirectory(tests)
 endif()
+
+install(TARGETS example-adder adder)
+install(FILES include/conception-orientee-objet/example-adder.hpp
+        DESTINATION include/conception-orientee-objet)
