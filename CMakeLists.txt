@@ -16,7 +16,8 @@ add_library(
                        src/example-adder.cpp)
 
 target_include_directories(
-  example-adder PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>)
+  example-adder PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+                       $<INSTALL_INTERFACE:include>)
 
 add_executable(adder src/adder.cpp)
 target_link_libraries(adder PUBLIC example-adder)
@@ -31,6 +32,23 @@ if(BUILD_TESTING)
   add_subdirectory(tests)
 endif()
 
-install(TARGETS example-adder adder)
+install(TARGETS example-adder adder EXPORT Conception-Orientee-ObjetTargets)
+
 install(FILES include/conception-orientee-objet/example-adder.hpp
         DESTINATION include/conception-orientee-objet)
+
+install(
+  EXPORT Conception-Orientee-ObjetTargets
+  NAMESPACE Conception-Orientee-Objet::
+  DESTINATION lib/cmake/Conception-Orientee-Objet)
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+  Config.cmake.in Conception-Orientee-ObjetConfig.cmake
+  INSTALL_DESTINATION lib/cmake/Conception-Orientee-Objet)
+write_basic_package_version_file(Conception-Orientee-ObjetConfigVersion.cmake
+                                 COMPATIBILITY AnyNewerVersion)
+
+install(FILES "${CMAKE_BINARY_DIR}/Conception-Orientee-ObjetConfig.cmake"
+              "${CMAKE_BINARY_DIR}/Conception-Orientee-ObjetConfigVersion.cmake"
+        DESTINATION lib/cmake/Conception-Orientee-Objet)
