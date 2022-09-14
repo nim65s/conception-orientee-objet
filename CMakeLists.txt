@@ -24,6 +24,7 @@ target_include_directories(
 
 add_executable(adder src/adder.cpp)
 target_link_libraries(adder PUBLIC example-adder)
+set_target_properties(adder PROPERTIES INSTALL_RPATH "$ORIGIN/../lib")
 
 if(BUILD_PYTHON_INTERFACE)
   find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
