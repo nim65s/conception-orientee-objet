@@ -15,5 +15,5 @@ aideront lors de la conception, du développement, et à plus long terme.
 - https://homepages.laas.fr/gsaurel/talks/conception-orientee-objet-outils.pdf
 - https://homepages.laas.fr/matthieu/talks/git.pdf
 - https://learngitbranching.js.org/
-- https://homepages.laas.fr/gsaurel/talks/conception-orientee-objet-forges.pdf
+- https://homepages.laas.fr/gsaurel/talks/git-forges.pdf
 - https://nvie.com/posts/a-successful-git-branching-model/
