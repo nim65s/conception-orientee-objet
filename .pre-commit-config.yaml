@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v15.0.4
+    rev: v15.0.6
     hooks:
     -   id: clang-format
 -   repo: https://github.com/pre-commit/pre-commit-hooks
@@ -22,7 +22,7 @@ repos:
     -   id: mixed-line-ending
     -   id: trailing-whitespace
 -   repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
+    rev: v5.11.3
     hooks:
     -   id: isort
 -   repo: https://github.com/psf/black
